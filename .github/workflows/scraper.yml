@@ -1,0 +1,24 @@
+name: Schedule scraper
+
+on:
+  workflow_run:
+    workflows: [Run Schedule Hello World]
+    types:
+      - completed
+
+jobs:
+  run-scraper-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Execute schedule_scraper.py script
+        run: python schedule_scraper.py
+
