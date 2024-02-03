@@ -2,7 +2,7 @@ name: Schedule scraper
 
 on:
   workflow_run:
-    workflows: [Run Schedule Hello World]
+    workflows: [Schedule Hello World]
     types:
       - completed
 
